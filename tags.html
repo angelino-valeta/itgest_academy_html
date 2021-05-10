@@ -1,10 +1,191 @@
 <!DOCTYPE html>
-<html lang="pt" dir="ltr">
+<html lang="pt">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Tags HTML</title>
   </head>
   <body>
-    <h1>Tags HTML</h1>
+    <div>
+      <h1>Tags HTML</h1>
+
+      <b><i>Negrito italico</i></b>
+      <hr>
+      <h1>This is heading 1</h1>
+      <h2>This is heading 2</h2>
+      <h3>This is heading 3</h3>
+      <h4>This is heading 4</h4>
+      <h5>This is heading 5</h5>
+      <h6>This is heading 6</h6>
+
+      <a href="https://www.w3schools.com/" target="_blank">w3school</a>
+    </div>
+
+    <hr>
+
+    <!--Listagens-->
+    <p>O que é eu gosto de tomar ao pequeno almoço.</p>
+    <div>
+      <ul type="square">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ul>
+
+      <ul>
+        <li>
+          <span>Beverages</span>
+          <ul class="nested">
+            <li>Water</li>
+            <li>Coffee</li>
+            <li><span class="caret">Tea</span>
+              <ul class="nested">
+                <li>Black Tea</li>
+                <li>White Tea</li>
+                <li><span class="caret">Green Tea</span>
+                    <ul class="nested">
+                      <li>Sencha</li>
+                      <li>Gyokuro</li>
+                      <li>Matcha</li>
+                      <li>Pi Lo Chun</li>
+                    </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Buttons  -->
+
+    <div>
+      <button  
+      type="button"
+      onclick="alert('Olá')">
+       Click Me!
+      </button>
+
+      <button  
+      disabled
+      type="button"
+      onclick="alert('Olá')">
+       Click Me!
+      </button>
+
+      <button 
+      type="button"
+      onclick="console.log('Olá!')"
+      >
+        Olá
+      </button>
+      <button 
+      type="button"
+      onclick="console.log('Chau!')"
+      >
+        Chau
+      </button>
+    </div>
+
+    <div>
+      <img src="https://academy.itgest.pt/wp-content/uploads/2021/03/itgest-academy-logo.svg" 
+      alt="ITGest Academy"
+      width="350"
+      height="350">
+    </div>
+    
+    <!-- Forms and input -->
+
+    <form>
+
+      <div>
+        <label for="name">
+          Nome:
+        </label>
+        <input type="text" id="name">  
+        <label for="idade">
+          Idade:
+        </label>
+        <input type="number" id="idade">
+      </div>
+
+      <br>
+
+      <div>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Masculino</label>
+        <br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Feminino</label>
+        <br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Outro</label>
+      </div>
+
+      <br>
+
+      <div>
+        <label for="password">
+          Palavra-passe:
+        </label>
+        <input type="password" id="password">
+        <label for="confirpass">
+          Confirmar palavra-passe:
+        </label>
+        <input type="password" id="confrpass">
+      </div>
+      
+      <hr>
+      <br>
+
+      <div>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> I have a bike</label>
+        <br>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+        <label for="vehicle2"> I have a car</label>
+        <br>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+        <label for="vehicle3"> I have a boat</label>
+      </div>
+
+      <div>
+        <label for="data">Barthday:</label>
+        <input 
+        type="date"
+        id="data"
+        min="2021-04-01">
+        <input type="time">
+      </div>
+      
+      <div>
+        <label for="cor">Seleciona a sua cor favorita:</label>
+        <input type="color" name="cor" id="cor" value="#ff0000">
+      </div>
+
+      <br>
+
+      <div>
+        <label for="cars">Seleciona o carro</label>
+        <br>
+        <select id="cars" multiple>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+      </select>
+      </div>
+
+      <div>
+        <textarea 
+        id="w3review" 
+        name="w3review" 
+        rows="100" 
+        cols="200">
+        At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+        </textarea>
+      </div>
+
+    </form>
+
   </body>
 </html>
