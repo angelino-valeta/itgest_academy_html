@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Formulário ITGest Academy</title>
+    <!-- Fonts  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet">
+
+    <style>
+      /* Setup */
+      *{box-sizing: border-box;}
+
+      body{
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      /* Navigation */
+      .nav{
+        display: flex;
+        position: fixed;
+        justify-content: space-between;
+        top: 0;
+        width: 100%;
+        align-items: center;
+        background-color: #FCEA12;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 10px 24px;
+        border-bottom: 2px solid #000;
+      }
+
+
+      .navItems a{
+        color: #000;
+        text-decoration: none;
+        margin: 0 25px;
+      }
+
+      /* Button Inscreve-te */
+      .btnInscreveTe{
+        background-color: #000;
+        color: #FCEA12;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 12px 16px;
+        cursor: pointer;
+        border: none;
+      }
+
+      /* Formulario */
+
+      #mainForm{
+        display: none;
+        justify-content: flex-end;
+        z-index: 2;
+      }
+
+      .itgestForm{
+        height: 100%;
+        width: 75%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        background-color: #000;
+        border-width: 0px 0px 0px 5px ;
+        border-style: solid;
+        border-color: #FCEA12;
+        color: #fff;
+        padding: 70px 60px;
+        overflow-y: scroll;
+        transition: 0.5s all;	
+      }
+
+      .formTitle{
+        margin-top: 10px;
+        color: #000;
+        -webkit-text-stroke:1px #FCEA12;
+        font-size: 70px;
+      }
+
+      select, 
+      input[type=email], 
+      input[type=number], 
+      input[type=password],
+      input[type=text],
+      input[type=file],
+      input[type=date], 
+      textarea, 
+      input[type=submit]
+      {
+        width: 100%;
+        padding: 8px 16px;
+        background-color: #000;
+        color: #fff;
+        border: 4px solid #FCEA12;
+        outline: none;
+        line-height: 1;
+        margin-top: 5px;
+        margin-bottom: 30px;
+      }
+
+      .controlCheck{
+        margin-bottom: 30px;
+      }
+
+      input[type=checkbox]{
+        margin-left: 20px;
+        margin-top: 12px;
+      }
+
+      textarea{
+        resize: none;
+      }
+
+      input[type=submit]{
+        background-color: #FCEA12;
+        color: #000;
+        padding: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        margin-top: 20px;
+      }
+
+      input[type=submit]:hover{
+        background-color:#54595F;
+        color: #fff;
+      }
+
+      /* Botão fechar */
+
+      .itgestForm .closeBtn{
+        position: absolute;
+        top: 30px;
+        right: 55px;
+        font-size: 50px;
+        color: #FCEA12;
+        cursor: pointer;
+      }
+
+      /* Media query */
+
+      @media screen and (max-width: 780px) {
+        .itgestForm{ width: 100%}
+      }
+      @media screen and (max-width: 660px){
+        .nav{ flex-direction: column;}
+        .navItems{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        .navItems a{
+          margin: 12px 0;
+        }
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="nav">
+      <!-- Logo ITGest Academy -->
+      <a class="logo" href="#">
+        <img src="https://academy.itgest.pt/wp-content/uploads/2021/03/itgest-academy-logo.svg" alt="ITGest Academy"
+          width="70" height="70">
+      </a>
+
+      <div class="navItems">
+        <a href="https://academy.itgest.pt/#academias">Academias</a>
+        <a href="#">Sobre a ITGest Academy</a>
+        
+        <button 
+          id="openForm" 
+          class="btnInscreveTe"
+          onclick="openForm()"
+          >Inscreve-te</button>
+      </div>
+
+    </nav>
+
+    
+    <main id="mainForm">
+      
+      <!-- Formulário para candidatura da Academia -->
+      <form class="itgestForm" id="itgestForm" action="">
+
+        <!-- Botão para fechar o formulario -->
+        <span 
+          onclick="closeForm()
+          "
+          class="closeBtn"
+          >
+          &times;
+          </span>
+
+          <!-- Cabeçalho do formulario -->
+
+        <div>
+          <img src="https://academy.itgest.pt/wp-content/uploads/2021/03/trianglo-amarelo-8.png" width="68" height="53" alt="triangolo amarelo">
+          <h1 class="formTitle">Inscreve-te</h1>
+        </div>
+
+        <!-- Elementos HTML para escolher o Curso  -->
+        <div>
+          <label for="curso">Academia a que se está a candidatar*</label>
+          <br>
+          <select required id="cursos">
+            <option value="default" selected>---</option>
+            <option value="sapHCM">SAP HCM Success Factors (17 de Maio 2021)</option>
+            <option value="softwareDev" disabled>Software Development(Inscrições Fechadas)</option>
+            <option value="biAnalytics">Bussiness Inteligence & Analytics (31 de Maio de 2021)</option>
+          </select>
+        </div>
+
+        <!-- Nome do Candidato  -->
+        <div>
+          <label for="name">Nome e Apelido*</label>
+          <div>
+            <input type="text" required id="name" name="name" placeholder="Nome e Apelido" />
+          </div>
+        </div>
+
+        <!-- Email do Candidato -->
+        <div>
+          <label for="email">Endereço de e-mail*</label>
+          <div>
+            <input type="email" required id="email" name="email" placeholder="Endereço de E-mail" />
+          </div>
+        </div>
+
+        <!-- Data de nascimento do Candidato -->
+        <div>
+          <label for="dataNascimento">Data de Nascimento*</label>
+          <div>
+            <input type="date" required id="dataNascimento" name="dataNascimento" placeholder="mm/dd/yyyy" />
+          </div>
+        </div>
+
+        <!-- Informações sobre Habilitações Literárias -->
+        <div>
+          <label>Habilitações Literárias*</label>
+
+          <div class="controlCheck">
+            <input type="checkbox" id="habilitacaoLiterariaEnsinoMedio" name="habilitacaoLiterariaEnsinoMedio"
+              value="Ensino Secundário">
+            <label for="habilitacaoLiterariaEnsinoMedio">Ensino Secundário</label>
+            <br>
+            <input type="checkbox" id="habilitacaoLiterariaLicenciatura" name="habilitacaoLiterariaLicenciatura"
+              value="Licenciatura">
+            <label for="habilitacaoLiterariaLicenciatura">Licenciatura</label>
+            <br>
+            <input type="checkbox" id="habilitacaoLiterariaMestrado" name="habilitacaoLiterariaMestrado" value="Mestrado">
+            <label for="habilitacaoLiterariaMestrado">Mestrado</label>
+            <br>
+            <input type="checkbox" id="habilitacaoLiterariaDoutoramento" name="habilitacaoLiterariaDoutoramento"
+              value="Doutoramento">
+            <label for="habilitacaoLiterariaDoutoramento">Doutoramento</label>
+            <br>
+            <input type="checkbox" id="habilitacaoLiterariaOutro" name="habilitacaoLiterariaOutro" value="Outro">
+            <label for="habilitacaoLiterariaOutro">Outro</label>
+          </div>
+        </div>
+
+        <!-- Informações sobre Área de Formação -->
+        <br>
+        <div>
+          <label>Área de Formação*</label>
+          <div class="controlCheck">
+            <input type="checkbox" id="areaformacaoCienciasSocias_Humanos" name="areaformacaoCienciasSocias_Humanos"
+              value="Ciências Sociais e Humanos">
+            <label for="areaformacaoCienciasSocias_Humanos">Ciências Sociais e Humanos</label>
+            <br>
+            <input type="checkbox" id="areaformacaoCienciasEmpresariais" name="areaformacaoCienciasEmpresariais"
+              value="Ciências Empresariais">
+            <label for="areaformacaoCienciasEmpresariais">Ciências Empresariais</label>
+            <br>
+            <input type="checkbox" id="areaformacaoGestao_Economia" name="areaformacaoGestao_Economia"
+              value="Gestão/ Economia">
+            <label for="areaformacaoGestao_Economia">Gestão/ Economia</label>
+            <br>
+            <input type="checkbox" id="areaformacaoInformatica" name="areaformacaoInformatica" value="Informática">
+            <label for="areaformacaoInformatica">Informática</label>
+            <br>
+            <input type="checkbox" id="areaformacaInformaticaGestao" name="areaformacaInformaticaGestao"
+              value="Informática de Gestão">
+            <label for="areaformacaInformaticaGestao">Informática de Gestão</label>
+            <br>
+            <input type="checkbox" id="areaformacaoEngenharia_TecniacasAfins" name="areaformacaoEngenharia_TecniacasAfins"
+              value="Engenharia e técnicas afins">
+            <label for="areaformacaoEngenharia_TecniacasAfins">Engenharia e técnicas afins</label>
+            <br>
+            <input type="checkbox" id="areaformacaoContabilidadeFinanças" name="areaformacaoContabilidadeFinanças"
+              value="Contabilidade / Finanças">
+            <label for="areaformacaoContabilidadeFinanças">Contabilidade/ Finanças</label>
+            <br>
+            <input type="checkbox" id="areaformacaoSaude" name="areaformacaoSaude" value="Saúde">
+            <label for="areaformacaoSaude">Saúde</label>
+            <br>
+            <input type="checkbox" id="areaformacaoServicosSocias" name="areaformacaoServicosSocias"
+              value="Serviços Sociais">
+            <label for="areaformacaoServicosSocias">Serviços Sociais</label>
+            <br>
+            <input type="checkbox" id="areaformacaoOutro" name="areaformacaoOutro" value="outro">
+            <label for="areaformacaoOutro">Outro</label>
+          </div>
+        </div>
+
+        <!-- Ano de Conclusão da formação do Candidato  -->
+        <div>
+          <label for="anoConclusao">Ano de Conclusão*</label>
+          <div>
+            <input type="number" required id="anoConclusao" max="2019" name="anoConclusao"
+              placeholder="Ano de Conclusão" />
+          </div>
+        </div>
+
+        <!-- Motivo da Candidatura  -->
+        <div>
+          <label for="motivoCandidatura">Motivo da Candidatura*</label>
+          <div>
+            <input type="text" required id="motivoCandidatura" name="motivoCandidatura"
+              placeholder="Motivo da Candidatura" />
+          </div>
+        </div>
+
+        <!-- Informações sobre Como chegou a Academia-->
+        <div>
+          <label>Como obteve conhecimento da nossa Academia?*</label>
+
+          <div class="controlCheck">
+            <input type="checkbox" id="obteveConhecimentoPorMembroITgGestOrGID"
+              name="obteveConhecimentoPorMembroITgGestOrGID" value="porMembroITgGestOrGID">
+            <label for="obteveConhecimentoPorMembroITgGestOrGID">Conheço alguém que faz parte do Grupo ID/ ITGEST</label>
+            <br>
+            <input type="checkbox" id="obteveConhecimentoRedesSocias" name="obteveConhecimentoRedesSocias"
+              value="redesSocias">
+            <label for="obteveConhecimentoRedesSocias">Redes Sociais (Facebook, instagram ou outro)</label>
+            <br>
+            <input type="checkbox" id="obteveConhecimentoLinkedin" name="obteveConhecimentoLinkedin" value="linkedin">
+            <label for="obteveConhecimentoLinkedin">Linkedin</label>
+            <br>
+            <input type="checkbox" id="obteveConhecimentoFaculdade" name="obteveConhecimentoFaculdade" value="faculdade">
+            <label for="obteveConhecimentoFaculdade">Através da faculdade/universidade</label>
+            <br>
+            <input type="checkbox" id="obteveConhecimentoOutro" name="obteveConhecimentoOutro" value="outro">
+            <label for="obteveConhecimentoOutro">Outro</label>
+          </div>
+        </div>
+
+        <!-- Upload do CV -->
+        <div>
+          <label for="cv">Upload de CV*</label>
+          <div>
+            <input type="file" required name="cv" id="cv">
+          </div>
+        </div>
+
+        <!-- Upload de certificações -->
+
+        <div>
+          <label for="certificatio">Upload de Certificado de Habilitações*</label>
+          <div>
+            <input type="file" required name="certificatio" id="certificatio">
+          </div>
+        </div>
+
+        <!-- Mensagem para Dúvidas  -->
+
+        <div>
+          <div>
+            <label for="duvidas">Deixa aqui as tuas dúvidas e esclarecimentos</label>
+          </div>
+          <textarea 
+            name="duvidas" 
+            placeholder="Deixa-nos aqui as tuas dúvidas/ pedidos de esclarecimento" 
+            id="duvidas"
+            rows="20"></textarea>
+        </div>
+
+        <!-- Politicas de privacidade e botão enviar -->
+        <div>
+          <input type="checkbox" id="politicaPrivacidade" name="politicaPrivacidade" value="politicaPrivacidade">
+          <label for="politicaPrivacidade"> Dou o meu consentimento á ITGest para tratar dos meus dados pessoais tal como
+            descrito na <a style="color: #FCEA12;" href="https://academy.itgest.pt/politica-de-privacidade" target="_blank">Política de
+              Privacidade</a></label>
+          <input type="submit" value="ENVIAR INSCRIÇÃO">
+        </div>
+
+      </form>
+
+    </main>
+
+    <script>
+      
+      function openForm(){  
+        document.getElementById('mainForm').style.display = "flex";
+      }
+
+      function closeForm(){
+        document.getElementById('mainForm').style.display = "none";
+      }
+    </script>
+
+  </body>
+
+</html>
